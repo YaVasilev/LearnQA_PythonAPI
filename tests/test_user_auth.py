@@ -4,8 +4,6 @@ from lib.assertions import Assertions
 from lib.my_requests import MyRequests
 import allure
 
-url1 = "https://playground.learnqa.ru/api/user/login"
-
 
 @allure.epic("Authorization cases")
 class TestUserAuth(BaseCase):
