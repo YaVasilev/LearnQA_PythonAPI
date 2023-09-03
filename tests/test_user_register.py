@@ -75,3 +75,7 @@ class TestUSerRegister(BaseCase):
         response = MyRequests.post("/user", data=data)
 
         Assertions.assert_code_status(response, 400)
+        if len(name) == 1:
+            assert response.content.decode("utf-8") == "The value of 'username' field is too short"
+        elif len(name) > 250:
+            assert response.content.decode("utf-8") == "The value of 'username' field is too long"
