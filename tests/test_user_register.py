@@ -6,6 +6,7 @@ from lib.base_case import BaseCase
 from lib.assertions import Assertions
 
 
+@allure.epic("Register cases")
 class TestUSerRegister(BaseCase):
 
     @allure.description("This test successfully create new user")

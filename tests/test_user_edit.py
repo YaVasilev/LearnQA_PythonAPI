@@ -6,7 +6,7 @@ from lib.base_case import BaseCase
 from lib.assertions import Assertions
 from lib.my_requests import MyRequests
 
-
+@allure.epic("Edit cases")
 class TestUserEdit(BaseCase):
 
     def test_edit_just_created_user(self):
@@ -75,7 +75,7 @@ class TestUserEdit(BaseCase):
         Assertions.assert_code_status(response2, 400)
         Assertions.assert_response_text(response2, "Auth token not supplied")
 
-    @allure.description("Проверка невозможности изменения одного пользователя из под другого")
+    @allure.description("Checking the impossibility of changing one user from under another")
     def test_edit_user_from_auth_another_user(self):
         # REGISTER_USER_1
         register_data_user1 = self.prepare_registration_data()

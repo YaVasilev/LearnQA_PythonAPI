@@ -7,9 +7,10 @@ from lib.assertions import Assertions
 from lib.my_requests import MyRequests
 
 
+@allure.epic("Delete cases")
 class TestUserDelete(BaseCase):
 
-    @allure.description("В данном тесте проверяется, что нельзя удалить пользователя под id 2")
+    @allure.description("In this test, it is checked that it is impossible to delete a user under id 2")
     def test_not_delete_user_by_id2(self):
         # LOGIN
         login_data = {
@@ -42,7 +43,7 @@ class TestUserDelete(BaseCase):
         Assertions.assert_code_status(response3, 200)
         Assertions.assert_response_text(response3, '{"id":"2","username":"Vitaliy","email":"vinkotov@example.com","firstName":"Vitalii","lastName":"Kotov"}')
 
-    @allure.description("В данном тесте проверяется возможность удаления пользователя после его создания")
+    @allure.description("In this test, the possibility of deleting a user after its creation is checked.")
     def test_delete_user_after_create(self):
 
         # REGISTRATION
@@ -88,7 +89,7 @@ class TestUserDelete(BaseCase):
         Assertions.assert_code_status(response3, 404)
         Assertions.assert_response_text(response3,"User not found")
 
-    @allure.description("В данном тесте проверяется отсутствие возможности удаления пользователя из под другого пользователя")
+    @allure.description("In this test, the absence of the possibility of deleting a user from under another user is checked")
     def test_delete_user_from_another_user(self):
 
         # REGISTER_USER_1
